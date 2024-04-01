@@ -61,6 +61,16 @@ replay_suspicious_behaviour.yml
 replay_ttp1.yml
 ```
 
+Be sure to edit each replay file to connect to thve splunk instance you have:
+
+```
+splunk:
+  # connects to host on port 8089 make sure you have access to <host>:8089
+  host: localhost
+  username: admin
+  password: changeme
+```
+
 Copy data load scripts to the directory above attack_data and make them executable
 
 ```
