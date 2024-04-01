@@ -49,7 +49,7 @@ pip install -r bin/requirements.txt
 deactivate
 ```
 
-# Replay Datasets
+# Configure Replay Datasets
 Copy the replay files to attack_data/bin/
 
 ```
