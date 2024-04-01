@@ -70,6 +70,10 @@ splunk:
   username: admin
   password: changeme
 ```
+Also do a find and replace on the following in each replay file to set the inddex you want to send the data to.
+```
+index: mordor
+```
 
 Copy data load scripts to the directory above attack_data and make them executable
 
