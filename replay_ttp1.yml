@@ -1,0 +1,102 @@
+splunk:
+  # connects to host on port 8089 make sure you have access to <host>:8089
+  host: localhost
+  username: admin
+  password: changeme
+
+datasets:
+ ######--------Attack Techniques Datasets
+ 
+## Begin - T1003.002/atomic_red_team/
+#name of data set to replay
+- name: T1003.002_windows_security
+# relative path of raw file
+  path: datasets/attack_techniques/T1003.002/atomic_red_team/windows-security.log
+# splunk parameters to pass
+  replay_parameters:
+    source: WinEventLog:Security
+    sourcetype: WinEventLog
+    index: mordor
+    # updates timestamp of the dataset to current time.
+    update_timestamp: True
+  enabled: True
+
+- name: T1003.002_windows_powershell
+  path: datasets/attack_techniques/T1003.002/atomic_red_team/windows-powershell.log
+  replay_parameters:
+    source: WinEventLog:Microsoft-Windows-PowerShell/Operational
+    sourcetype: WinEventLog
+    index: mordor
+    #update_timestamp: True
+  enabled: True
+
+- name: T1003.002_windows_system
+  path: datasets/attack_techniques/T1003.002/atomic_red_team/windows-system.log
+  replay_parameters:
+    source: WinEventLog:System
+    sourcetype: WinEventLog
+    index: mordor
+    update_timestamp: True
+  enabled: True
+
+- name: T1003.002_sysmon
+  path: datasets/attack_techniques/T1003.002/atomic_red_team/windows-sysmon.log
+  replay_parameters:
+    source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+    sourcetype: xmlwineventlog
+    index: mordor
+  enabled: True
+ ## End - T1003.002/atomic_red_team/
+ 
+ 
+ ## Begin - T1003.002/serioussam/
+- name: T1003.002_windows_security
+  path: datasets/attack_techniques/T1003.002/serioussam/windows-security.log
+  replay_parameters:
+    source: WinEventLog:Security
+    sourcetype: WinEventLog
+    index: mordor
+    update_timestamp: True
+  enabled: True
+
+- name: T1003.002_windows_powershell
+  path: datasets/attack_techniques/T1003.002/serioussam/windows-powershell.log
+  replay_parameters:
+    source: WinEventLog:Microsoft-Windows-PowerShell/Operational
+    sourcetype: WinEventLog
+    index: mordor
+    #update_timestamp: True
+  enabled: True
+ ## End - T1003.002/serioussam/
+ 
+ 
+ ## Begin - T1572/cobalt_strike/
+- name: T1572_cobaltstrike_bro
+  path: datasets/attack_techniques/T1572/cobalt_strike/stream_events_zeek.log
+  replay_parameters:
+    source: bro:dns:json
+    sourcetype: bro:dns:json
+    index: mordor
+    #update_timestamp: True
+  enabled: True
+
+- name: T1572_cobaltstrike_stream
+  path: datasets/attack_techniques/T1572/cobalt_strike/stream_dns.log
+  replay_parameters:
+    source: stream:dns
+    sourcetype: stream:dns
+    index: mordor
+    #update_timestamp: True
+  enabled: True
+
+- name: T1572_cobaltstrike_suricata
+  path: datasets/attack_techniques/T1572/cobalt_strike/suricata_events.log
+  replay_parameters:
+    source: suricata
+    sourcetype: suricata
+    index: mordor
+    #update_timestamp: True
+  enabled: True
+ ## End - T1572/cobalt_strike/
+ 
+ 

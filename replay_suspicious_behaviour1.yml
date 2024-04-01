@@ -1,0 +1,79 @@
+splunk:
+  # connects to host on port 8089 make sure you have access to <host>:8089
+  host: localhost
+  username: admin
+  password: changeme
+
+datasets:
+## Begin - suspicious_behaviour/certutil_exe_certificate_extraction
+- name: certutil_exe_certificate_extraction
+  path: datasets/suspicious_behaviour/certutil_exe_certificate_extraction/windows-sysmon.log
+  replay_parameters:
+    source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+    sourcetype: xmlwineventlog
+    index: mordor
+  enabled: True
+ ## End - suspicious_behaviour/certutil_exe_certificate_extraction
+
+## Begin - suspicious_behaviour/first_time_windows_service
+- name: first_time_windows_service_windows-powershell
+  path: datasets/suspicious_behaviour/first_time_windows_service/windows-powershell.log
+  replay_parameters:
+    source: WinEventLog:Microsoft-Windows-PowerShell/Operational
+    sourcetype: WinEventLog
+    index: mordor
+  enabled: True
+  
+- name: first_time_windows_service_windows-security
+  path: datasets/suspicious_behaviour/first_time_windows_service/windows-security.log
+  replay_parameters:
+    source: WinEventLog:Security
+    sourcetype: WinEventLog
+    index: mordor
+  enabled: True
+  
+- name: first_time_windows_service_windows-sysmon
+  path: datasets/suspicious_behaviour/first_time_windows_service/windows-sysmon.log
+  replay_parameters:
+    source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+    sourcetype: xmlwineventlog
+    index: mordor
+  enabled: True
+  
+- name: first_time_windows_service_windows-system
+  path: datasets/suspicious_behaviour/first_time_windows_service/windows-system.log
+  replay_parameters:
+    source: WinEventLog:System
+    sourcetype: WinEventLog
+    index: mordor
+  enabled: True
+ ## End - suspicious_behaviour/first_time_windows_service
+ 
+ ## Begin - honeypot_casper
+- name: honeypot_casper_windows-sysmon
+  path: datasets/honeypots/casper/datasets1/windows-sysmon.log
+  replay_parameters:
+    source: XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+    sourcetype: xmlwineventlog
+    index: mordor
+  enabled: True
+  
+- name: honeypot_casper_windows-powershell
+  path: datasets/honeypots/casper/datasets1/windows-powershell.log
+  replay_parameters:
+    source: WinEventLog:Microsoft-Windows-PowerShell/Operational
+    sourcetype: WinEventLog
+    index: mordor
+  enabled: True
+ ## End - honeypot_casper
+ 
+ ## Begin - honeypot_pwsh 
+- name: honeypot_pwsh_windows-powershell
+  path: datasets/honeypots/pwsh/windows-powershell.log
+  replay_parameters:
+    source: WinEventLog:Microsoft-Windows-PowerShell/Operational
+    sourcetype: WinEventLog
+    index: mordor
+  enabled: True
+ ## End - honeypot_pwsh
+ 
