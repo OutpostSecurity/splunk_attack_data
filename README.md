@@ -18,18 +18,23 @@ Download the repository with this command:
 git clone https://github.com/splunk/attack_data
 ````
 
-Fetch all or select attack data sets
+# Configure LFS
+Install git-lsf
 
 ````
-# This pulls all data - Warning >9Gb of data
+sudo yum -y install git
+````
+
+Initiate lfs
+
+```
+git lfs install --skip-smudge
+```
+Move into the attack_data directory and do a full lfs pull. This will be roughly 12gb since it downloads all of the datasets. Alternatively, you can download select datasets and can see how on https://github.com/splunk/attack_data
+
+````
+cd attack_data/
 git lfs pull
-
-# This pulls one data set directory
-git lfs pull --include=datasets/attack_techniques/T1003.001/atomic_red_team/
-
-# Or pull just one log like this
-git lfs pull --include=datasets/attack_techniques/T1003.001/atomic_red_team/windows-sysmon.log
-
 ````
 
 
