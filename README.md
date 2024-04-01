@@ -1,22 +1,15 @@
-![](environments/static/attack-data-logo.png)
+This project is meant to help accelerate you ability to script importing attack datasets from Splunk
 
-A Repository of curated datasets from various attacks to:
-
-* Easily develop detections without having to build an environment from scratch or simulate an attack.
-* Test detections, specifically [Splunks Security Content](https://github.com/splunk/security-content)
-* [Replay](#replay-datasets-) into streaming pipelines for validating your detections in your production SIEM
-
-# Installation
-GitHub LFS is used in this project. For Mac users git-lfs can be derived with homebrew (for another OS click [here](https://github.com/git-lfs/git-lfs/wiki/Installation)):
+# Setup
+Install git on the server
 
 ````
-brew install git-lfs
+sudo yum -y install git
 ````
 
-Then you need to install it. I would recommend using the --skip-smudge parameter, which will avoid that all Git LFS files are downloaded during git clone. You can install it with the following command:
-
+Install pip on the server
 ````
-git lfs install --skip-smudge
+sudo yum -y install pip
 ````
 
 Download the repository with this command:
