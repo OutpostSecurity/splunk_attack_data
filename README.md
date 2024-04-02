@@ -1,4 +1,4 @@
-This project is meant to help accelerate you ability to script importing attack datasets from Splunk. Be sure to review the readme and install steps from https://github.com/splunk/attack_data
+This project is meant to help accelerate your ability to script importing attack datasets from Splunk. Be sure to review the readme and install steps from https://github.com/splunk/attack_data
 
 # Setup
 Install git on the server
