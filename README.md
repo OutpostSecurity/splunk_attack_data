@@ -61,7 +61,7 @@ replay_suspicious_behaviour.yml
 replay_ttp1.yml
 ```
 
-Be sure to edit each replay file to connect to thve splunk instance you have:
+Be sure to edit each replay file to connect to the splunk instance you have:
 
 ```
 splunk:
